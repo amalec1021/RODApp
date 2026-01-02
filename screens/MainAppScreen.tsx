@@ -3,6 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import ServicesPage from "../pages/ServicesPage";
 import NotificationsPage from "../pages/NotificationsPage";
+import InquiriesPage from "../pages/InquiriesPage";
 
 function MainAppScreen() {
   const [actualPage, setActualPage] = useState(<ServicesPage />);
@@ -32,6 +33,9 @@ function MainAppScreen() {
         break;
       case "Notifications":
         setActualPage(<NotificationsPage />);
+        break;
+      case "Inquiries":
+        setActualPage(<InquiriesPage />);
         break;
     }
   }
