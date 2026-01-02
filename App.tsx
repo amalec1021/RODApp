@@ -1,20 +1,58 @@
+import WelcomeScreen from './screens/WelcomeScreen';
+import LogInScreen from './screens/LogInScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import MainAppScreen from './screens/MainAppScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const WelcomeScreenName = 'WelcomeScreen';
+const LogInScreenName = 'LogInScreen';
+const SignUpScreenName = 'SignUpScreen';
+const MainAppScreenName = 'MainAppScreen';
+
+export type RootStackParamList = {
+  WelcomeScreen: undefined;
+  LogInScreen: undefined;
+  SignUpScreen: undefined;
+  MainAppScreen: undefined;
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar style="dark" />
+      {LoadNavScreens()}
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function LoadNavScreens() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{animation: 'default'}}>
+        <Stack.Screen
+          name={WelcomeScreenName}
+          component={WelcomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={LogInScreenName}
+          component={LogInScreen}
+          options={{title: 'Log in into customer app', headerStyle: {backgroundColor: '#f3ffe6ff'}} }
+        />
+        <Stack.Screen
+          name={SignUpScreenName}
+          component={SignUpScreen}
+          options={{title: 'Sign up into customer app', headerStyle: {backgroundColor: '#f3ffe6ff'}} }
+        />
+        <Stack.Screen
+          name={MainAppScreenName}
+          component={MainAppScreen}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
