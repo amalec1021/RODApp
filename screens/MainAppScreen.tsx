@@ -34,19 +34,19 @@ function MainAppScreen() {
 
   function onPressNavItem(page: string) {
     switch (page) {
-      case "Services":
+      case navItems[0]:
         setActualPage(<ServicesPage />);
         break;
-      case "Notifications":
-        setActualPage(<NotificationsPage />);
-        break;
-      case "Inquiries":
+      case navItems[1]:
         setActualPage(<InquiriesPage onAddInquiry={onAddInquiryPressed} />);
         break;
-      case "Settings":
+      case navItems[2]:
+        setActualPage(<NotificationsPage />);
+        break;
+      case navItems[3]:
         setActualPage(<SettingsPage />);
         break;
-      case "Help":
+      case navItems[4]:
         setActualPage(<HelpPage />);
         break;
     }
@@ -61,7 +61,7 @@ function MainAppScreen() {
         {navItems.map((item) => (
           <TouchableOpacity key={item} style={styles.navItem} onPress={() => onPressNavItem(item)}>
             <Image
-              source={require("../assets/icon.png")}
+              source={setNavBarIcons(item)}
               style={styles.navIcon}
             />
             <Text style={styles.navText}>{item}</Text>
@@ -69,6 +69,21 @@ function MainAppScreen() {
         ))}
       </View>
     );
+  }
+
+  function setNavBarIcons(navItem: string) {
+    switch (navItem) {
+      case navItems[0]:
+        return require("../assets/images/plus.png");
+      case navItems[1]:
+        return require("../assets/images/question.png");
+      case navItems[2]:
+        return require("../assets/images/chat.png");
+      case navItems[3]:
+        return require("../assets/images/setting.png");
+      case navItems[4]:
+        return require("../assets/images/help.png");
+    }
   }
 }
 
@@ -82,7 +97,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderTopWidth: 1,
     borderTopColor: "#ddd",
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffffc4",
     paddingBottom: 30,
   },
   navItem: {
