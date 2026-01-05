@@ -4,6 +4,7 @@ import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import ServicesPage from "../pages/ServicesPage";
 import NotificationsPage from "../pages/NotificationsPage";
 import InquiriesPage from "../pages/InquiriesPage";
+import SettingsPage from "../pages/SettingsPage";
 
 function MainAppScreen() {
   const [actualPage, setActualPage] = useState(<ServicesPage />);
@@ -40,6 +41,9 @@ function MainAppScreen() {
         break;
       case "Inquiries":
         setActualPage(<InquiriesPage onAddInquiry={onAddInquiryPressed} />);
+        break;
+      case "Settings":
+        setActualPage(<SettingsPage />);
         break;
     }
   }
