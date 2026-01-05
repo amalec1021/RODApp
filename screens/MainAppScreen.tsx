@@ -75,7 +75,7 @@ function MainAppScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+    paddingTop: 30,
     backgroundColor: "transparent",
   },
   navBar: {
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: "#ddd",
     backgroundColor: "#fff",
+    paddingBottom: 30,
   },
   navItem: {
     flex: 1,
