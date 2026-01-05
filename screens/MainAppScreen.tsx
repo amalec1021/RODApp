@@ -6,9 +6,11 @@ import NotificationsPage from "../pages/NotificationsPage";
 import InquiriesPage from "../pages/InquiriesPage";
 import SettingsPage from "../pages/SettingsPage";
 import HelpPage from "../pages/HelpPage";
+import { SafeAreaProvider, useSafeAreaInsets,} from "react-native-safe-area-context";
 
-function MainAppScreen() {
+function MainAppScreenContent() {
   const [actualPage, setActualPage] = useState(<ServicesPage />);
+  const insets = useSafeAreaInsets();
 
   const navItems = [
     "Services",
@@ -27,7 +29,7 @@ function MainAppScreen() {
       colors={["#b8eeffff", "#c9fd91ff"]}
       style={styles.container}
     >
-      {actualPage}
+      <View style={{ flex: 1 }}>{actualPage}</View>
       {navBarContent()}
     </LinearGradient>
   );
@@ -57,13 +59,14 @@ function MainAppScreen() {
       /* Bottom Navigation Bar */
     }
     return (
-      <View style={styles.navBar}>
+      <View style={[styles.navBar, { paddingBottom: insets.bottom }]}>
         {navItems.map((item) => (
-          <TouchableOpacity key={item} style={styles.navItem} onPress={() => onPressNavItem(item)}>
-            <Image
-              source={setNavBarIcons(item)}
-              style={styles.navIcon}
-            />
+          <TouchableOpacity
+            key={item}
+            style={styles.navItem}
+            onPress={() => onPressNavItem(item)}
+          >
+            <Image source={setNavBarIcons(item)} style={styles.navIcon} />
             <Text style={styles.navText}>{item}</Text>
           </TouchableOpacity>
         ))}
@@ -98,7 +101,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: "#ddd",
     backgroundColor: "#ffffffc4",
-    paddingBottom: 30,
   },
   navItem: {
     flex: 1,
@@ -116,4 +118,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainAppScreen;
+export default function MainAppScreen() {
+  return (
+    <SafeAreaProvider>
+      <MainAppScreenContent />
+    </SafeAreaProvider>
+  );
+}
