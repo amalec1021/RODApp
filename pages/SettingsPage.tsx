@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
 export default SettingsPageContent;
 
@@ -8,17 +8,20 @@ function SettingsPageContent() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Settings</Text>
       </View>
-    <View style={styles.content}>
-        <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>My profile</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Account management</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonLogOut}>
-            <Text style={styles.buttonText}>Log out</Text>
-        </TouchableOpacity>
-    </View>
+
+      <View style={styles.content}>
+        <Pressable style={styles.button} onPress={() => {console.log("My profile pressed")}}>
+          <Text style={styles.buttonText}>My profile</Text>
+        </Pressable>
+
+        <Pressable style={styles.button} onPress={() => {console.log("Account management pressed")}}>
+          <Text style={styles.buttonText}>Account management</Text>
+        </Pressable>
+
+        <Pressable style={styles.buttonLogOut} onPress={() => {console.log("Log out pressed")}}>
+          <Text style={styles.buttonText}>Log out</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }

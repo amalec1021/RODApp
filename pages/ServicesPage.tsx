@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
   StyleSheet,
+  Pressable,
 } from "react-native";
 
 export default function ServicesPageContent() {
@@ -59,13 +60,13 @@ export default function ServicesPageContent() {
             keyExtractor={(item) => item.id}
             scrollEnabled={false}
             renderItem={({ item }) => (
-              <TouchableOpacity style={styles.serviceItem}>
+              <Pressable style={styles.serviceItem} onPress={() => {console.log(`Service ${item.name} pressed`)}}>
                 <Image
                   source={require("../assets/icon.png")}
                   style={styles.serviceImage}
                 />
                 <Text style={styles.serviceText}>{item.name}</Text>
-              </TouchableOpacity>
+              </Pressable>
             )}
           />
         </View>
