@@ -1,8 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-
+    
 export default InquiriesPageContent;
 
-function InquiriesPageContent() {
+  type Props = {
+  onAddInquiry: () => void;
+};
+
+function InquiriesPageContent({ onAddInquiry }: Props) { 
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -10,7 +15,7 @@ function InquiriesPageContent() {
       </View>
       <View style={styles.centerContent}>
         <Text style={styles.inquiriesText}>No active inquiries</Text>
-        <TouchableOpacity style={styles.addButton} onPress={() => {}}>
+        <TouchableOpacity style={styles.addButton} onPress={onAddInquiry}>
           <Text style={styles.addButtonText}>+ Add new inquire</Text>
         </TouchableOpacity>
       </View>

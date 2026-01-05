@@ -16,6 +16,10 @@ function MainAppScreen() {
     "Help",
   ];
 
+  const onAddInquiryPressed = () => {
+    setActualPage(<ServicesPage />);
+  };
+
   return (
     <LinearGradient
       colors={["#b8eeffff", "#c9fd91ff"]}
@@ -26,8 +30,8 @@ function MainAppScreen() {
     </LinearGradient>
   );
 
-  function onPressNavItem(item: string) {
-    switch (item) {
+  function onPressNavItem(page: string) {
+    switch (page) {
       case "Services":
         setActualPage(<ServicesPage />);
         break;
@@ -35,7 +39,7 @@ function MainAppScreen() {
         setActualPage(<NotificationsPage />);
         break;
       case "Inquiries":
-        setActualPage(<InquiriesPage />);
+        setActualPage(<InquiriesPage onAddInquiry={onAddInquiryPressed} />);
         break;
     }
   }
