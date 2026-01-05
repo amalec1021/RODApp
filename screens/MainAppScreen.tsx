@@ -5,6 +5,7 @@ import ServicesPage from "../pages/ServicesPage";
 import NotificationsPage from "../pages/NotificationsPage";
 import InquiriesPage from "../pages/InquiriesPage";
 import SettingsPage from "../pages/SettingsPage";
+import HelpPage from "../pages/HelpPage";
 
 function MainAppScreen() {
   const [actualPage, setActualPage] = useState(<ServicesPage />);
@@ -44,6 +45,9 @@ function MainAppScreen() {
         break;
       case "Settings":
         setActualPage(<SettingsPage />);
+        break;
+      case "Help":
+        setActualPage(<HelpPage />);
         break;
     }
   }
