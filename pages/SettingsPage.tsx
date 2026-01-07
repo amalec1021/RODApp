@@ -1,13 +1,16 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { Images } from "../assets/images";
+import { useTranslation } from "react-i18next";
 
 export default SettingsPageContent;
 
 function SettingsPageContent() {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Settings</Text>
+        <Text style={styles.headerTitle}>{t("settings.title")}</Text>
       </View>
 
       <View style={styles.content}>
@@ -21,7 +24,7 @@ function SettingsPageContent() {
             source={Images.appIcon}
             style={styles.settingIcon}
           />
-          <Text style={styles.buttonText}>My profile</Text>
+          <Text style={styles.buttonText}>{t("settings.myProfile")}</Text>
         </Pressable>
 
         <Pressable
@@ -34,7 +37,7 @@ function SettingsPageContent() {
             source={Images.appIcon}
             style={styles.settingIcon}
           />
-          <Text style={styles.buttonText}>Account management</Text>
+          <Text style={styles.buttonText}>{t("settings.accountManagement")}</Text>
         </Pressable>
 
         <Pressable
@@ -47,7 +50,7 @@ function SettingsPageContent() {
             source={Images.appIcon}
             style={styles.settingIcon}
           />
-          <Text style={styles.buttonText}>Log out</Text>
+          <Text style={styles.buttonText}>{t("settings.logOut")}</Text>
         </Pressable>
       </View>
     </View>

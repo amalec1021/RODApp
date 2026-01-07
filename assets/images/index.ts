@@ -40,11 +40,11 @@ export const Images = {
 
 // Navigation icon map for dynamic access
 export const NavIcons = {
-  Services: plusIcon,
-  Inquiries: questionIcon,
-  Notifications: chatIcon,
-  Settings: settingIcon,
-  Help: helpIcon,
+  services: plusIcon,
+  inquiries: questionIcon,
+  notifications: chatIcon,
+  settings: settingIcon,
+  help: helpIcon,
 } as const;
 
 export default Images;

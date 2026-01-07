@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { RootStackParamList } from '../App';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useTranslation } from 'react-i18next';
 
 type Props = NativeStackScreenProps<
   RootStackParamList,
@@ -9,6 +10,7 @@ type Props = NativeStackScreenProps<
 >;
 
 export default function SignUpScreen({ navigation }: Props) {
+    const { t } = useTranslation();
     const [phoneOrEmail, setPhoneOrEmail] = useState('');
     const [name, setName] = useState('');
     const [localization, setLocalization] = useState('');
@@ -19,30 +21,30 @@ export default function SignUpScreen({ navigation }: Props) {
             routes: [{ name: 'MainAppScreen' }],
         });
     };
-    
+
     return (
         <View style={styles.container}>
             <TextInput
                 style={styles.input}
-                placeholder="Phone number or email"
+                placeholder={t('auth.phoneOrEmail')}
                 value={phoneOrEmail}
                 onChangeText={setPhoneOrEmail}
                 keyboardType="email-address"
             />
             <TextInput
                 style={styles.input}
-                placeholder="Your name"
+                placeholder={t('auth.yourName')}
                 value={name}
                 onChangeText={setName}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Localization"
+                placeholder={t('auth.localization')}
                 value={localization}
                 onChangeText={setLocalization}
             />
             <TouchableOpacity style={styles.signUpButton} onPress={handleSignUp}>
-                <Text style={styles.buttonText}>Sign Up</Text>
+                <Text style={styles.buttonText}>{t('auth.signUpButton')}</Text>
             </TouchableOpacity>
         </View>
     );

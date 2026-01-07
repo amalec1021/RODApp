@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 export default function LogInScreen() {
+    const { t } = useTranslation();
     const [emailOrPhone, setEmailOrPhone] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
 
     const validateCredentials = () => {
         if (!emailOrPhone.trim()) {
-            Alert.alert('Error', 'Please enter email or phone number');
+            Alert.alert(t('common.error'), t('auth.errorEmailOrPhone'));
             return false;
         }
         if (!password.trim()) {
-            Alert.alert('Error', 'Please enter password');
+            Alert.alert(t('common.error'), t('auth.errorPassword'));
             return false;
         }
         return true;
@@ -26,9 +28,9 @@ export default function LogInScreen() {
             // Add your login API call here
             console.log('Login attempt:', { emailOrPhone, password });
             // Example: const response = await loginAPI(emailOrPhone, password);
-            Alert.alert('Success', 'Logged in successfully');
+            Alert.alert(t('common.success'), t('auth.loginSuccess'));
         } catch (error) {
-            Alert.alert('Error', 'Login failed. Please try again.');
+            Alert.alert(t('common.error'), t('auth.loginFailed'));
         } finally {
             setLoading(false);
         }
@@ -40,14 +42,14 @@ export default function LogInScreen() {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Email or Phone Number"
+                    placeholder={t('auth.emailOrPhone')}
                     value={emailOrPhone}
                     onChangeText={setEmailOrPhone}
                     keyboardType="email-address"
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder="Password"
+                    placeholder={t('auth.password')}
                     value={password}
                     onChangeText={setPassword}
                     secureTextEntry
@@ -61,7 +63,7 @@ export default function LogInScreen() {
                 disabled={loading}
             >
                 <Text style={styles.buttonText}>
-                    {loading ? 'Logging in...' : 'Continue'}
+                    {loading ? t('auth.loggingIn') : t('common.continue')}
                 </Text>
             </TouchableOpacity>
         </View>

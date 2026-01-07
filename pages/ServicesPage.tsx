@@ -11,22 +11,24 @@ import {
   Pressable,
 } from "react-native";
 import { Images } from "../assets/images";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesPageContent() {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
 
   const services = [
-    { id: "1", name: "Home building" },
-    { id: "2", name: "Electricity" },
-    { id: "3", name: "Plumber" },
-    { id: "4", name: "Painter" },
-    { id: "5", name: "Furniture and development" },
-    { id: "6", name: "Cleaning" },
-    { id: "7", name: "Installation and repair" },
-    { id: "8", name: "Automotive" },
-    { id: "9", name: "Gardening" },
-    { id: "10", name: "Events organization" },
-    { id: "11", name: "Transport" },
+    { id: "1", name: t("services.homeBuilding") },
+    { id: "2", name: t("services.electricity") },
+    { id: "3", name: t("services.plumber") },
+    { id: "4", name: t("services.painter") },
+    { id: "5", name: t("services.furnitureAndDevelopment") },
+    { id: "6", name: t("services.cleaning") },
+    { id: "7", name: t("services.installationAndRepair") },
+    { id: "8", name: t("services.automotive") },
+    { id: "9", name: t("services.gardening") },
+    { id: "10", name: t("services.eventsOrganization") },
+    { id: "11", name: t("services.transport") },
   ];
 
   return (
@@ -36,18 +38,18 @@ export default function ServicesPageContent() {
         {/* Search Bar */}
         <TextInput
           style={styles.searchBar}
-          placeholder="Search service..."
+          placeholder={t("services.searchPlaceholder")}
           value={searchQuery}
           onChangeText={setSearchQuery}
         />
 
         {/* Popular Services Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Popular services</Text>
+          <Text style={styles.sectionTitle}>{t("services.popularServices")}</Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {[1, 2, 3, 4, 5].map((item) => (
               <TouchableOpacity key={item} style={styles.placeholderButton}>
-                <Text>Service {item}</Text>
+                <Text>{t("services.serviceItem", { number: item })}</Text>
               </TouchableOpacity>
             ))}
           </ScrollView>
@@ -55,7 +57,7 @@ export default function ServicesPageContent() {
 
         {/* Services List */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>List of services</Text>
+          <Text style={styles.sectionTitle}>{t("services.listOfServices")}</Text>
           <FlatList
             data={services}
             keyExtractor={(item) => item.id}

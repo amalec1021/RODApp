@@ -1,22 +1,24 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-    
+import { useTranslation } from "react-i18next";
+
 export default InquiriesPageContent;
 
   type Props = {
   onAddInquiry: () => void;
 };
 
-function InquiriesPageContent({ onAddInquiry }: Props) { 
+function InquiriesPageContent({ onAddInquiry }: Props) {
+  const { t } = useTranslation();
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Inquiries</Text>
+        <Text style={styles.headerTitle}>{t("inquiries.title")}</Text>
       </View>
       <View style={styles.centerContent}>
-        <Text style={styles.inquiriesText}>No active inquiries</Text>
+        <Text style={styles.inquiriesText}>{t("inquiries.noActiveInquiries")}</Text>
         <TouchableOpacity style={styles.addButton} onPress={onAddInquiry}>
-          <Text style={styles.addButtonText}>+ Add new inquire</Text>
+          <Text style={styles.addButtonText}>{t("inquiries.addNewInquire")}</Text>
         </TouchableOpacity>
       </View>
     </View>

@@ -1,0 +1,70 @@
+{
+  "common": {
+    "continue": "Continue",
+    "error": "Error",
+    "success": "Success"
+  },
+  "welcome": {
+    "title": "RushOnDemand",
+    "signUp": "Sign up",
+    "logIn": "Log in",
+    "providerApp": "Provider app"
+  },
+  "auth": {
+    "emailOrPhone": "Email or Phone Number",
+    "password": "Password",
+    "phoneOrEmail": "Phone number or email",
+    "yourName": "Your name",
+    "localization": "Localization",
+    "loggingIn": "Logging in...",
+    "signUpButton": "Sign Up",
+    "errorEmailOrPhone": "Please enter email or phone number",
+    "errorPassword": "Please enter password",
+    "loginSuccess": "Logged in successfully",
+    "loginFailed": "Login failed. Please try again."
+  },
+  "navigation": {
+    "services": "Services",
+    "inquiries": "Inquiries",
+    "notifications": "Notifications",
+    "settings": "Settings",
+    "help": "Help"
+  },
+  "services": {
+    "searchPlaceholder": "Search service...",
+    "popularServices": "Popular services",
+    "listOfServices": "List of services",
+    "serviceItem": "Service {{number}}",
+    "homeBuilding": "Home building",
+    "electricity": "Electricity",
+    "plumber": "Plumber",
+    "painter": "Painter",
+    "furnitureAndDevelopment": "Furniture and development",
+    "cleaning": "Cleaning",
+    "installationAndRepair": "Installation and repair",
+    "automotive": "Automotive",
+    "gardening": "Gardening",
+    "eventsOrganization": "Events organization",
+    "transport": "Transport"
+  },
+  "inquiries": {
+    "title": "Inquiries",
+    "noActiveInquiries": "No active inquiries",
+    "addNewInquire": "+ Add new inquire"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNewNotifications": "No new notifications"
+  },
+  "settings": {
+    "title": "Settings",
+    "myProfile": "My profile",
+    "accountManagement": "Account management",
+    "logOut": "Log out"
+  },
+  "help": {
+    "title": "Help",
+    "helpCenter": "Help center",
+    "writeToUs": "Write to us"
+  }
+}

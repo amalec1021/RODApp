@@ -1,15 +1,18 @@
 import { View, Text, StyleSheet } from "react-native";
+import { useTranslation } from "react-i18next";
 
 export default NotificationsPageContent;
 
 function NotificationsPageContent() {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Notifications</Text>
+        <Text style={styles.headerTitle}>{t("notifications.title")}</Text>
       </View>
       <View style={styles.centerContent}>
-        <Text style={styles.noNotificationsText}>No new notifications</Text>
+        <Text style={styles.noNotificationsText}>{t("notifications.noNewNotifications")}</Text>
       </View>
     </View>
   );

@@ -1,13 +1,16 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { Images } from "../assets/images";
+import { useTranslation } from "react-i18next";
 
 export default HelpPageContent;
 
 function HelpPageContent() {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Help</Text>
+        <Text style={styles.headerTitle}>{t("help.title")}</Text>
       </View>
       <View style={styles.contentContainer}>
         <Pressable
@@ -20,7 +23,7 @@ function HelpPageContent() {
             source={Images.appIcon}
             style={styles.helpIcon}
           />
-          <Text style={styles.buttonText}>Help center</Text>
+          <Text style={styles.buttonText}>{t("help.helpCenter")}</Text>
           <Text style={styles.arrow}>→</Text>
         </Pressable>
         <Pressable
@@ -33,7 +36,7 @@ function HelpPageContent() {
             source={Images.appIcon}
             style={styles.helpIcon}
           />
-          <Text style={styles.buttonText}>Write to us</Text>
+          <Text style={styles.buttonText}>{t("help.writeToUs")}</Text>
           <Text style={styles.arrow}>→</Text>
         </Pressable>
       </View>

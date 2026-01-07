@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Linking } from 'react-
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App';
 import { Images } from '../assets/images';
+import { useTranslation } from 'react-i18next';
 
 type Props = NativeStackScreenProps<
   RootStackParamList,
@@ -13,6 +14,7 @@ type Props = NativeStackScreenProps<
 export default WelcomeScreen;
 
 function WelcomeScreen({ navigation }: Props) {
+    const { t } = useTranslation();
 
     function LogInPressHandler() {
         navigation.navigate('LogInScreen');
@@ -29,24 +31,24 @@ function WelcomeScreen({ navigation }: Props) {
             </View>
 
             {/* Title */}
-            <Text style={styles.title}>RushOnDemand</Text>
+            <Text style={styles.title}>{t('welcome.title')}</Text>
 
             {/* Buttons */}
             <View style={styles.buttonsContainer}>
                 <TouchableOpacity style={styles.signUpButton } onPress={SignUpPressHandler}>
-                    <Text style={styles.signUpButtonText}>Sign up</Text>
+                    <Text style={styles.signUpButtonText}>{t('welcome.signUp')}</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={styles.logInButton} onPress={LogInPressHandler}>
-                    <Text style={styles.logInButtonText}>Log in</Text>
+                    <Text style={styles.logInButtonText}>{t('welcome.logIn')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.providerButton}
                     onPress={() =>
                     Linking.openURL('https://play.google.com/store')}>
-                <Text style={styles.providerButtonText}>Provider app</Text>
+                <Text style={styles.providerButtonText}>{t('welcome.providerApp')}</Text>
                 </TouchableOpacity>
             </View>
         </LinearGradient>
