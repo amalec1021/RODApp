@@ -10,6 +10,7 @@ import {
   StyleSheet,
   Pressable,
 } from "react-native";
+import { Images } from "../assets/images";
 
 export default function ServicesPageContent() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -62,7 +63,7 @@ export default function ServicesPageContent() {
             renderItem={({ item }) => (
               <Pressable style={styles.serviceItem} onPress={() => {console.log(`Service ${item.name} pressed`)}}>
                 <Image
-                  source={require("../assets/icon.png")}
+                  source={Images.appIcon}
                   style={styles.serviceImage}
                 />
                 <Text style={styles.serviceText}>{item.name}</Text>

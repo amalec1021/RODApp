@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
+import { Images } from "../assets/images";
 
 export default SettingsPageContent;
 
@@ -17,7 +18,7 @@ function SettingsPageContent() {
           }}
         >
           <Image
-            source={require("../assets/icon.png")}
+            source={Images.appIcon}
             style={styles.settingIcon}
           />
           <Text style={styles.buttonText}>My profile</Text>
@@ -30,7 +31,7 @@ function SettingsPageContent() {
           }}
         >
             <Image
-            source={require("../assets/icon.png")}
+            source={Images.appIcon}
             style={styles.settingIcon}
           />
           <Text style={styles.buttonText}>Account management</Text>
@@ -43,7 +44,7 @@ function SettingsPageContent() {
           }}
         >
             <Image
-            source={require("../assets/icon.png")}
+            source={Images.appIcon}
             style={styles.settingIcon}
           />
           <Text style={styles.buttonText}>Log out</Text>

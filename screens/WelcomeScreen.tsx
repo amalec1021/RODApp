@@ -3,6 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Linking } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App';
+import { Images } from '../assets/images';
 
 type Props = NativeStackScreenProps<
   RootStackParamList,
@@ -24,7 +25,7 @@ function WelcomeScreen({ navigation }: Props) {
     return (
         <LinearGradient colors={['#b8eeffff', '#c9fd91ff']} style={styles.container}>
             <View style={styles.logoContainer}>
-                <Image source={require('../assets/images/logo.jpg')} style={styles.logo} />
+                <Image source={Images.logo} style={styles.logo} />
             </View>
 
             {/* Title */}

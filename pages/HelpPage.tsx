@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
+import { Images } from "../assets/images";
 
 export default HelpPageContent;
 
@@ -16,7 +17,7 @@ function HelpPageContent() {
           }}
         >
           <Image
-            source={require("../assets/icon.png")}
+            source={Images.appIcon}
             style={styles.helpIcon}
           />
           <Text style={styles.buttonText}>Help center</Text>
@@ -29,7 +30,7 @@ function HelpPageContent() {
           }}
         >
           <Image
-            source={require("../assets/icon.png")}
+            source={Images.appIcon}
             style={styles.helpIcon}
           />
           <Text style={styles.buttonText}>Write to us</Text>

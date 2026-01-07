@@ -7,6 +7,7 @@ import InquiriesPage from "../pages/InquiriesPage";
 import SettingsPage from "../pages/SettingsPage";
 import HelpPage from "../pages/HelpPage";
 import { SafeAreaProvider, useSafeAreaInsets,} from "react-native-safe-area-context";
+import { NavIcons } from "../assets/images";
 
 function MainAppScreenContent() {
   const [actualPage, setActualPage] = useState(<ServicesPage />);
@@ -75,18 +76,7 @@ function MainAppScreenContent() {
   }
 
   function setNavBarIcons(navItem: string) {
-    switch (navItem) {
-      case navItems[0]:
-        return require("../assets/images/plus.png");
-      case navItems[1]:
-        return require("../assets/images/question.png");
-      case navItems[2]:
-        return require("../assets/images/chat.png");
-      case navItems[3]:
-        return require("../assets/images/setting.png");
-      case navItems[4]:
-        return require("../assets/images/help.png");
-    }
+    return NavIcons[navItem as keyof typeof NavIcons];
   }
 }
 
