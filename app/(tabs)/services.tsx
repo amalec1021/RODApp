@@ -10,7 +10,7 @@ import {
   StyleSheet,
   Pressable,
 } from "react-native";
-import { Images } from "../assets/images";
+import { Images } from "../../assets/images";
 import { useTranslation } from "react-i18next";
 
 export default function ServicesPageContent() {

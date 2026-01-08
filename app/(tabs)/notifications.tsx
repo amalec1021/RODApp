@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useTranslation } from "react-i18next";
 
-export default NotificationsPageContent;
+export default NotificationsPage;
 
-function NotificationsPageContent() {
+function NotificationsPage() {
   const { t } = useTranslation();
 
   return (

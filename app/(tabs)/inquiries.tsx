@@ -1,14 +1,28 @@
+/**
+ * Inquiries Tab Screen
+ *
+ * URL: rodapp://inquiries or rodapp://inquiries/[id]
+ */
+
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useRouter, useLocalSearchParams } from "expo-router";
 import { useTranslation } from "react-i18next";
 
-export default InquiriesPageContent;
-
-  type Props = {
-  onAddInquiry: () => void;
-};
-
-function InquiriesPageContent({ onAddInquiry }: Props) {
+export default function InquiriesPage() {
+  const router = useRouter();
   const { t } = useTranslation();
+  const { inquiryId } = useLocalSearchParams();
+
+  // Handle deep link parameter (e.g., rodapp://inquiries/123)
+  if (inquiryId) {
+    console.log('Opened inquiry:', inquiryId);
+    // TODO: Load specific inquiry data
+  }
+
+  const handleAddInquiry = () => {
+    // Navigate to Services tab when adding a new inquiry
+    router.push('/(tabs)/services');
+  };
 
   return (
     <View style={styles.container}>
@@ -17,7 +31,7 @@ function InquiriesPageContent({ onAddInquiry }: Props) {
       </View>
       <View style={styles.centerContent}>
         <Text style={styles.inquiriesText}>{t("inquiries.noActiveInquiries")}</Text>
-        <TouchableOpacity style={styles.addButton} onPress={onAddInquiry}>
+        <TouchableOpacity style={styles.addButton} onPress={handleAddInquiry}>
           <Text style={styles.addButtonText}>{t("inquiries.addNewInquire")}</Text>
         </TouchableOpacity>
       </View>

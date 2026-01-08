@@ -1,11 +1,22 @@
+/**
+ * Settings Tab Screen
+ *
+ * URL: rodapp://settings
+ */
+
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import { Images } from "../assets/images";
+import { useRouter } from "expo-router";
+import { Images } from "../../assets/images";
 import { useTranslation } from "react-i18next";
 
-export default SettingsPageContent;
-
-function SettingsPageContent() {
+export default function SettingsPage() {
+  const router = useRouter();
   const { t } = useTranslation();
+
+  const handleLogout = () => {
+    // Navigate back to auth (logout) and clear navigation stack
+    router.replace('/(auth)');
+  };
 
   return (
     <View style={styles.container}>
@@ -42,9 +53,7 @@ function SettingsPageContent() {
 
         <Pressable
           style={styles.buttonLogOut}
-          onPress={() => {
-            console.log("Log out pressed");
-          }}
+          onPress={handleLogout}
         >
             <Image
             source={Images.appIcon}
