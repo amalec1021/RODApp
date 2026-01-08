@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import { Images } from "../assets/images";
+import { Images } from "../../assets/images";
 import { useTranslation } from "react-i18next";
 
-export default HelpPageContent;
+export default HelpPage;
 
-function HelpPageContent() {
+function HelpPage() {
   const { t } = useTranslation();
 
   return (

@@ -21,7 +21,9 @@
     "errorEmailOrPhone": "Please enter email or phone number",
     "errorPassword": "Please enter password",
     "loginSuccess": "Logged in successfully",
-    "loginFailed": "Login failed. Please try again."
+    "loginFailed": "Login failed. Please try again.",
+    "loginTitle": "Log in into customer app",
+    "signupTitle": "Sign up into customer app"
   },
   "navigation": {
     "services": "Services",
