@@ -31,7 +31,7 @@ export default function WelcomeScreen() {
 
   return (
     <LinearGradient colors={['#b8eeffff', '#c9fd91ff']} style={styles.container}>
-      <View style={[styles.content, { paddingTop: insets.top + 20, paddingBottom: insets.bottom + 20 }]}>
+      <View style={[styles.content, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
         <View style={styles.logoContainer}>
           <Image source={Images.logo} style={styles.logo} />
         </View>
